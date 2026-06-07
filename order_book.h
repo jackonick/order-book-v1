@@ -2,7 +2,7 @@
 #include <cstdint>
 #include <map>
 #include <deque>
-
+#include <vector>
 
 
 enum class Side {
@@ -18,13 +18,21 @@ struct Order {
 	uint64_t size;
 };
 
+struct Trade {
+	uint64_t resting_id;
+	uint64_t resting_price;
+	uint64_t trade_size;
+	uint64_t incoming_id;
+};
 
 class OrderBook {
 public:
 	void add_order(Order incoming);
 	void print() const;
+	void printTrade() const;
 
 private:
 	std::map<uint64_t, std::deque<Order>, std::greater<uint64_t>> bids;
 	std::map<uint64_t, std::deque<Order>> asks;
+	std::vector<Trade> Trades;
 };
