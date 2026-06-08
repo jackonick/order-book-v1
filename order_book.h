@@ -31,6 +31,9 @@ public:
 	void print() const;
 	void printTrade() const;
 
+	std::size_t bid_levels() const;
+
+
 private:
 	std::map<uint64_t, std::deque<Order>, std::greater<uint64_t>> bids;
 	std::map<uint64_t, std::deque<Order>> asks;

@@ -27,3 +27,4 @@ build/
 *.idb
 *.log
 *.tlog
+build/
