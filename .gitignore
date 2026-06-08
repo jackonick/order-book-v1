@@ -1,30 +1,21 @@
 # Build output
-[Bb]in/
-[Dd]ebug/
-[Rr]elease/
-x64/
-x86/
-[Ww]in32/
-[Oo]ut/
 build/
+
+# Compiled binaries
+/main
+/order_book
+/orderbook
+
+# Generated data
+trades.csv
+
+# IDE / editor
+.idea/
+.vscode/
 
 # Visual Studio
+*.slnx
+*.vcxproj
+*.vcxproj.filters
+*.sln
 .vs/
-*.user
-*.suo
-*.userosscache
-*.sln.docstates
-
-# Compiled / linker artifacts
-*.exe
-*.dll
-*.lib
-*.obj
-*.o
-*.pdb
-*.ilk
-*.exp
-*.idb
-*.log
-*.tlog
-build/
