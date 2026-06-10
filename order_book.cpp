@@ -122,3 +122,7 @@ void OrderBook::printTrade() const
 std::size_t OrderBook::bid_levels () const{
 	return bids.size();
 }
+
+std::size_t OrderBook::trade_count () const {
+	return Trades.size();
+}

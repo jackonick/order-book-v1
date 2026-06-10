@@ -32,7 +32,7 @@ public:
 	void printTrade() const;
 
 	std::size_t bid_levels() const;
-
+	std::size_t trade_count() const;
 
 private:
 	std::map<uint64_t, std::deque<Order>, std::greater<uint64_t>> bids;

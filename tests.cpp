@@ -9,6 +9,19 @@ TEST(Suite, test){
 
 TEST(RestsWhenNoMatch, AddOrder){
     OrderBook book;
+    Order o1;
+    o1.id = 5;
+	o1.side = Side::BUY;
+	o1.price = 102;
+	o1.size = 20;
+	o1.timestamp = 4;
+    book.add_order(o1);
+
+    EXPECT_EQ(book.bid_levels(), 1);
+}
+
+TEST(Matching, CrossingProducesTrade){
+    OrderBook book;
     book.print();
     Order o1;
     o1.id = 5;
@@ -17,11 +30,19 @@ TEST(RestsWhenNoMatch, AddOrder){
 	o1.size = 20;
 	o1.timestamp = 4;
 
-    EXPECT_EQ(book.bid_levels(), 0);
+    Order o2;
+    o2.id = 6;
+    o2.side = Side::SELL;
+    o2.price = 102;
+    o2.size = 50;
+    o2.timestamp = 5;
+    book.add_order(o2);
+
+    EXPECT_EQ(book.trade_count(), 0);
 
     book.add_order(o1);
 
-    EXPECT_EQ(book.bid_levels(), 1);
+    EXPECT_EQ(book.trade_count(), 1);
 
     book.print();
 }
