@@ -126,3 +126,7 @@ std::size_t OrderBook::bid_levels () const{
 std::size_t OrderBook::trade_count () const {
 	return Trades.size();
 }
+
+uint64_t OrderBook::id_getter () const {
+	return Trades.back().resting_id;
+}

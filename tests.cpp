@@ -46,3 +46,34 @@ TEST(Matching, CrossingProducesTrade){
 
     book.print();
 }
+
+TEST(Crossing, TradeTests){
+    OrderBook book;
+
+    Order o1;
+    o1.id = 1;
+    o1.side = Side::BUY;
+    o1.price = 100;
+    o1.size = 10;
+    o1.timestamp = 4;
+    book.add_order(o1);
+
+    Order o2;
+    o2.id = 2;
+    o2.side = Side::BUY;
+    o2.price = 100;
+    o2.size = 10;
+    o2.timestamp = 5;
+    book.add_order(o2);
+
+    Order o3;
+    o3.id = 3;
+    o3.side = Side::SELL;
+    o3.price = 100;
+    o3.size = 10;
+    o3.timestamp = 6;
+    book.add_order(o3);
+
+    EXPECT_EQ(book.trade_count(), 1);
+    EXPECT_EQ(book.id_getter(), 1);
+}
